@@ -1,0 +1,10 @@
+@media screen and (max-width:767px){
+    .img-div{
+        overflow-x: hidden;
+    }
+}    
+@media screen and (max-width:400px){
+    .responsive-text{
+        display: none;
+    }
+}    
