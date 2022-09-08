@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import './SignIn.css'
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from '../../Firebase/Firebase.init';
 
 const SignIn = () => {
      const [value , setValue] = useState(false)
-
-    const signUpMode = () => {
+     const signUpMode = () => {
            if(value === false){
             setValue(true)
            }
@@ -12,6 +13,21 @@ const SignIn = () => {
             setValue(false)
            }
     }
+
+    //  google authentication
+    const provider = new GoogleAuthProvider();
+    const googleUser = (event) => {
+        event.preventDefault()
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            const user = result.user;
+            console.log(user)
+          }).catch((error) => {
+            const errorMessage = error.message;
+            console.log(errorMessage)
+          });
+    }
+   
     return (
     <div className='w-full h-fit lg:p-8 md:p-6 p-4 bg-gradient-to-r from-yellow-400 to-rose-600'>
         <div className={`main-container ${value ? 'sign-up-mode' : 'sign-in-mode'}  backdrop-blur-sm bg-white/30`}>
@@ -53,11 +69,13 @@ const SignIn = () => {
                             </div>
                             {/* ---------- divider ---------- */}
                             <div className="divider text-white ">Or continue with</div>
-                            <button className=" btn w-full bg-gradient-to-r from-yellow-400 to-rose-600 border-none  ">
+                            {/* ---------------- google button ---------- */}
+                            <button className=" btn w-full bg-gradient-to-r from-yellow-400 to-rose-600 border-none" onClick={googleUser}>
                                     Google
                             </button>
                         </div>
                     </form>
+                    {/* ------------------ sign up form ----------------*/}
                     <form action="" className="sign-up-form   p-5 ">
                         <div className='mx-auto '>
                             {/* ---------- form title */}
@@ -100,7 +118,8 @@ const SignIn = () => {
                             </div>
                             {/* ------------ divider ----------- */}
                             <div className="divider text-white ">Or continue with</div>
-                            <button className=" btn w-full bg-gradient-to-r from-yellow-400 to-rose-600 border-none  ">
+                            {/* ---------------- google button ---------- */}
+                            <button className=" btn w-full bg-gradient-to-r from-yellow-400 to-rose-600 border-none" onClick={googleUser}>
                                     Google
                             </button>
                         </div>

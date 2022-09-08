@@ -1,7 +1,20 @@
-import React from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import auth from '../../../Firebase/Firebase.init';
 
 const Navbar = () => {
+    const [user , setUser] = useState()
+
+    useEffect(() =>{
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                setUser(user);
+                console.log(user,'navbar user');
+            }
+        })
+    },[])
+
     return (
     <div className="navbar sm:px-5 px-2 sm:py-3 py-1 w-full  shadow bg-gradient-to-r from-yellow-400 to-rose-700">
         <div className="navbar-start w-4/6 ">
@@ -33,7 +46,13 @@ const Navbar = () => {
            </div>
         </div>
         <div className="navbar-end w-2/6">
-               <Link to='/signIn' className='text-xl text-white px-2 font-semibold sm:mx-10'>Sign In</Link>
+               {
+                user ? 
+                 <button className='text-xl text-white px-2 font-semibold sm:mx-10'>
+                    Sign Out
+                </button>
+                : <Link to='/signIn' className='text-xl text-white px-2 font-semibold sm:mx-10'>Sign In</Link>
+               }
         </div>
     </div>
     );
