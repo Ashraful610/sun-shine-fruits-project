@@ -1,19 +1,39 @@
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import auth from '../../../Firebase/Firebase.init';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const [user , setUser] = useState()
 
-    useEffect(() =>{
+    const toastStyle = { 
+        duration: 4000,position: 'top-right',
+        style: {
+        backgroundImage:'linear-gradient(-45deg ,rgb(197, 197, 8) , rgb(220, 17, 17))',
+        color:'white'
+         }
+       }
+
+      useEffect(() =>{
         onAuthStateChanged(auth, (user) => {
-            if(user){
-                setUser(user);
-                console.log(user,'navbar user');
-            }
+               if(user){
+                   setUser(user);
+               }
         })
     },[])
+
+    //  handle sign out
+    const handleSignOut = () => {
+        signOut(auth)
+        .then(() => {
+            toast.success(`${user.email} successfully signed out`,toastStyle);
+            setUser()
+          })
+        .catch((error) => {
+            toast.error(error.message, toastStyle);
+          });
+        }        
 
     return (
     <div className="navbar sm:px-5 px-2 sm:py-3 py-1 w-full  shadow bg-gradient-to-r from-yellow-400 to-rose-700">
@@ -48,9 +68,13 @@ const Navbar = () => {
         <div className="navbar-end w-2/6">
                {
                 user ? 
-                 <button className='text-xl text-white px-2 font-semibold sm:mx-10'>
+                 <>
+                   <h2 className='text-lg text-white'>{user.email}</h2>
+                    <button className='text-xl text-white px-2 font-semibold sm:mx-10'
+                     onClick={handleSignOut}>
                     Sign Out
-                </button>
+                    </button>
+                 </>
                 : <Link to='/signIn' className='text-xl text-white px-2 font-semibold sm:mx-10'>Sign In</Link>
                }
         </div>

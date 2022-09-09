@@ -7,6 +7,7 @@ import MyItem from './Component/MyItem/MyItem';
 import Footer from './Component/Shared/Footer/Footer';
 import Navbar from './Component/Shared/Navbar/Navbar';
 import SignIn from './Component/SignIn/SignIn';
+import  { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
           <Route path='/manageItem' element={<ManageItem></ManageItem>} />
           <Route path='/signIn' element={<SignIn></SignIn>} />
        </Routes>
-          <Footer ></Footer>
+          {/* <Footer ></Footer> */}
+          <Toaster></Toaster>
     </div>
   );
 }
