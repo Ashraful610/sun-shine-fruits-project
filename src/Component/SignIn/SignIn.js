@@ -59,8 +59,15 @@ const SignIn = () => {
           })
         .catch((error) => {
             const errorMessage = error.message
-            
-            toast.error(error?.message, toastStyle);
+            if(errorMessage.includes('email-already-in-use')){
+                toast.error('The email address is already in use by another account. So please sign in or use another email address', toastStyle);
+            }
+            else if(errorMessage.includes('weak-password')){
+                toast.error('Please give a strong password', toastStyle);
+            }
+            else{
+                toast.error(errorMessage, toastStyle);
+            }
          });
     }
 
@@ -75,7 +82,16 @@ const SignIn = () => {
             toast.success(`Welcome to our Website ${user?.email}`,toastStyle);
           })
         .catch((error) => {
-            toast.error(error?.message, toastStyle);
+            const errorMessage = error.message
+            if(errorMessage.includes('user-not-found')){
+                toast.error('You have a no account, Please sign up', toastStyle);
+            }
+            else if(errorMessage.includes('wrong-password')){
+                toast.error('Your password is incorrect, give the correct password', toastStyle);
+            }
+            else{
+                toast.error(errorMessage, toastStyle);
+            }
          });
 
     }

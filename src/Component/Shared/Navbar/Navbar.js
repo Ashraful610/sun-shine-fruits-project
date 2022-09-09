@@ -5,8 +5,9 @@ import auth from '../../../Firebase/Firebase.init';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
-    const [user , setUser] = useState()
+    const [user , setUser] = useState({})
 
+    // --------------- toast style --------------------
     const toastStyle = { 
         duration: 4000,position: 'top-right',
         style: {
@@ -15,6 +16,7 @@ const Navbar = () => {
          }
        }
 
+    //    ------------- user  selection --------------------------------
       useEffect(() =>{
         onAuthStateChanged(auth, (user) => {
                if(user){
@@ -28,7 +30,7 @@ const Navbar = () => {
         signOut(auth)
         .then(() => {
             toast.success(`${user.email} successfully signed out`,toastStyle);
-            setUser()
+            setUser({})
           })
         .catch((error) => {
             toast.error(error.message, toastStyle);
@@ -69,7 +71,7 @@ const Navbar = () => {
                {
                 user ? 
                  <>
-                   <h2 className='text-lg text-white'>{user.email}</h2>
+                   
                     <button className='text-xl text-white px-2 font-semibold sm:mx-10'
                      onClick={handleSignOut}>
                     Sign Out
