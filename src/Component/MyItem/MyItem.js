@@ -3,7 +3,7 @@ import './MyItem.css'
 
 const MyItem = () => {
     return (
-   <div className='w-full h-full sm:p-5 p-2 gradient-bg'>
+   <div className='w-full min-h-screen sm:p-5 p-2 '>
       <div className='myItem'>
        
          <div className='backdrop-blur-xl bg-white/20 p-3 w-[608px] flex justify-between rounded hover:shadow-xl'>

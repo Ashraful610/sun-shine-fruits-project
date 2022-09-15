@@ -10,10 +10,12 @@ import SignIn from './Component/SignIn/SignIn';
 import  { Toaster } from 'react-hot-toast';
 import NotFoundPage from './Component/Shared/NotFoundPage/NotFoundPage';
 import Blog from './Component/Blog/Blog';
+import ItemDetails from './Component/ItemDetails/ItemDetails';
+import RequireAuth from './Component/Shared/RequireAuth/RequireAuth';
 
 function App() {
   return (
-    <div className='w-full min-h-screen relative gradient-bg'>
+    <div className='w-full relative gradient-bg'>
        <Navbar></Navbar>
        <Routes>
           <Route path='/' element={<Home></Home>} />
@@ -22,10 +24,11 @@ function App() {
           <Route path='/addItem' element={<AddItem></AddItem>} />
           <Route path='/myItem' element={<MyItem></MyItem>} />
           <Route path='/manageItem' element={<ManageItem></ManageItem>} />
+          <Route path='/itemDetails' element={<RequireAuth><ItemDetails></ItemDetails></RequireAuth>} />
           <Route path='/signIn' element={<SignIn></SignIn>} />
           <Route path='*' element={<NotFoundPage/>} />
        </Routes>
-          {/* <Footer ></Footer> */}
+          <Footer ></Footer>
           <Toaster></Toaster>
     </div>
   );

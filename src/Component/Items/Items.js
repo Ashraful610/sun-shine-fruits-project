@@ -34,7 +34,7 @@ const Items = () => {
                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium optio voluptatem quas quod . 
                         </p>
                         <button className="absolute xl:bottom-5 bottom-3 right-5 left-5 gradient-btn">        
-                            Update now
+                            <Link to='/itemDetails'>Update Now</Link>
                         </button>
                     </div>
                  </div>

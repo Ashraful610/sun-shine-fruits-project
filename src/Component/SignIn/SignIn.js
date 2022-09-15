@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './SignIn.css'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import auth from '../../Firebase/Firebase.init';
 import toast from 'react-hot-toast';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import Loading from '../Shared/Loading/Loading'
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const SignIn = () => {
      const [value , setValue] = useState(false)
@@ -15,15 +19,21 @@ const SignIn = () => {
            }
      }
     //  ----------- user
-     const [user , setUser] = useState()
-     useEffect(() =>{
-         onAuthStateChanged(auth, (user) => {
-             if(user){
-                 setUser(user);
-             }
-         })
-     },[])
+    const [user, userLoading, error] = useAuthState(auth);
+   
  
+    let navigate = useNavigate();
+    let location = useLocation();
+  
+    let from = location.state?.from?.pathname || "/";
+
+    if(userLoading){
+        return <Loading></Loading>
+    }
+        if(user){
+            return  navigate(from, { replace: true });
+        }
+    
     //  -------------- toast style
     const toastStyle = { 
                duration: 4000,position: 'top-right',
@@ -96,7 +106,7 @@ const SignIn = () => {
 
     }
     return (
-    <div className='w-full h-fit lg:p-8 md:p-6 p-4 '>
+    <div className='w-full h-fit lg:p-8 md:p-6 p-4'>
         <div className={`main-container ${value ? 'sign-up-mode' : 'sign-in-mode'}  backdrop-blur-sm bg-white/30`}>
             {/* ---------- form container ---------- */}
              <div className="form-container">
