@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Items.css'
 
 const Items = () => {
     return (
-        <div className='w-full min-h-screen py-8 px-3  bg-gradient-to-r from-yellow-400 to-rose-600'>
+        <div className='w-full min-h-screen py-8 px-5 '>
             <h2 className='text-5xl text-center text-white font-semibold font-serif'>Our
                <span className='text-yellow-300'> Fruits </span>
              </h2>
-            <div className="w-full h-full md:px-5 py-10 grid sm:grid-cols-2 gap-5">
+            <div className="w-full h-full  py-10 grid sm:grid-cols-2 gap-5">
                 {/* --------- card One */}
                  <div className="w-full lg:h-full md:h-3/4 sm:h-full h-full  lg:flex shadow-2xl rounded-2xl overflow-hidden">
                     {/* ----------- img div ----------- */}
@@ -32,7 +33,7 @@ const Items = () => {
                            <span className='font-semibold text-xl'> Description : </span>
                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium optio voluptatem quas quod . 
                         </p>
-                        <button className="btn absolute xl:bottom-5 bottom-3 right-5 left-5 bg-gradient-to-r from-rose-600 to-yellow-400 border-0 shadow-xl">        
+                        <button className="absolute xl:bottom-5 bottom-3 right-5 left-5 gradient-btn">        
                             Update now
                         </button>
                     </div>
@@ -182,6 +183,11 @@ const Items = () => {
                         </button>
                     </div>
                  </div>
+            </div>
+            <div className='text-right'>
+               <Link to='/manageItem' className='gradient-btn sm:w-[200px] w-[150px]'>
+                 Manage Inventory
+               </Link>
             </div>
         </div>
     );

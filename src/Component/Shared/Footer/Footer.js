@@ -12,7 +12,7 @@ const Footer = () => {
             month = '0'+ month;
         }
     return (
-        <footer className=" xl:p-12 sm:p-10 p-5 py-2 bg-gradient-to-r from-yellow-400 to-rose-600 text-base-content shadow-inner ">
+        <footer className=" xl:p-12 sm:p-10 p-5 py-2 text-base-content shadow-inner ">
             <div className="footer">
                 <div>
                     <span className="footer-title text-white">Services</span> 

@@ -4,7 +4,7 @@ import './ExtraSectionOne.css'
 
 const ExtraSectionOne = () => {
     return (
-        <div className='w-full xl:min-h-screen p-5 bg-gradient-to-r from-yellow-400 to-rose-600 '>
+        <div className='w-full xl:min-h-screen p-5 '>
               <h2 className='lg:text-5xl md:text-4xl text-3xl sm:p-2 py-2 text-center text-white font-semibold font-serif'>
                 Why <span className='text-yellow-300'> Choose </span> Our 
                 <span className='text-yellow-300'> Fruits </span>

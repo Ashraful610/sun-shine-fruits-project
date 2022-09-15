@@ -23,7 +23,7 @@ const SignIn = () => {
              }
          })
      },[])
-
+ 
     //  -------------- toast style
     const toastStyle = { 
                duration: 4000,position: 'top-right',
@@ -96,7 +96,7 @@ const SignIn = () => {
 
     }
     return (
-    <div className='w-full h-fit lg:p-8 md:p-6 p-4 bg-gradient-to-r from-yellow-400 to-rose-600'>
+    <div className='w-full h-fit lg:p-8 md:p-6 p-4 '>
         <div className={`main-container ${value ? 'sign-up-mode' : 'sign-in-mode'}  backdrop-blur-sm bg-white/30`}>
             {/* ---------- form container ---------- */}
              <div className="form-container">
@@ -117,7 +117,7 @@ const SignIn = () => {
                                 </svg>
 
                                     {/*----------- input field -----------  */}
-                                <input type="email" placeholder='User email' name='email' className="placeholder:italic placeholder:font-semiboldw-full h-10  border-none focus:ring-0"/>
+                                <input type="email" placeholder='User email' name='email' className="placeholder:italic placeholder:font-semibold w-full h-10  border-none focus:ring-0"/>
                             </div>
                             {/* ----------password input div   ---------- */}
                             <div className="input  w-full max-w-xs h-full flex items-center rounded-full  my-5 hover:shadow-xl">
@@ -132,12 +132,13 @@ const SignIn = () => {
                             </div>
                             {/* ------------ submit button ----------- */}
                             <div className='w-2/4 mx-auto'>
-                              <input type="submit" value="Sign In" className='btn w-full  bg-gradient-to-r from-yellow-400 to-rose-600 border-none '/>
+                              <input type="submit" value="Sign In" className='gradient-btn w-full   '/>
                             </div>
+
                             {/* ---------- divider ---------- */}
                             <div className="divider text-white ">Or continue with</div>
                             {/* ---------------- google button ---------- */}
-                            <button className=" btn w-full bg-gradient-to-r from-yellow-400 to-rose-600 border-none" onClick={googleUser}>
+                            <button className=" gradient-btn w-full " onClick={googleUser}>
                                     Google
                             </button>
                         </div>
@@ -182,14 +183,14 @@ const SignIn = () => {
                             </div>
                             {/* ------------ submit button ----------- */}
                             <div className='w-2/4 mx-auto'>
-                              <input type="submit" value="Sign Up" className='btn w-full  bg-gradient-to-r from-yellow-400 to-rose-600 border-none '/>
+                              <input type="submit" value="Sign Up" className='w-full gradient-btn '/>
                             </div>
 
                             {/* ------------ divider ----------- */}
                             <div className="divider text-white ">Or continue with</div>
 
                             {/* ---------------- google button ---------- */}
-                            <button className=" btn w-full bg-gradient-to-r from-yellow-400 to-rose-600 border-none" onClick={googleUser}>
+                            <button className=" gradient-btn w-full" onClick={googleUser}>
                                     Google
                             </button>
                         </div>

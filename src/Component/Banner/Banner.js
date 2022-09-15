@@ -5,7 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 const Banner = () => {
     return (
-    <div className='w-full h-[513px] md:p-5 p-2 relative bg-gradient-to-r from-yellow-400 to-rose-600'>
+    <div className='w-full h-[513px] md:p-5 p-2 relative'>
           <div className="carousel w-full h-full">
             <div id="slide1" className="carousel-item relative w-full">
                  {/* ------------- banner one ---------------- */}
@@ -24,8 +24,9 @@ const Banner = () => {
                                         The fruit derived from labor is theLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sunt porro vero similique iusto explicabo!
                                     </p>
                                     {/* -------------- explore button --------------------*/}
-                                    <button className="btn bg-gradient-to-r from-rose-500 to-yellow-500 shadow-inner shadow-rose-500 border-0 xl:text-xl lg:text-lg">Explore More
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                    <button className="gradient-btn">Explore More
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> 
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                         </svg>
                                     </button>
                                 </div>
@@ -44,9 +45,10 @@ const Banner = () => {
                                 The fruit derived from labor is the sweetest of pleasures. 
                              </h2>
                              {/* ----------- explore button ----------- */}
-                             <button className="btn bg-gradient-to-r from-rose-500 to-yellow-500 shadow-inner shadow-rose-500 border-0 sm:text-base justify-self-center">
+                             <button className="gradient-btn sm:text-base justify-self-center">
                                 Explore More
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> 
+                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                 </svg>
                               </button>
                          </div>
@@ -79,8 +81,8 @@ const Banner = () => {
                                         The fruit derived from labor is theLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sunt porro vero similique iusto explicabo!
                                     </p>
                                     {/* ------------- explore button --------------------*/}
-                                    <button className="btn bg-gradient-to-r from-yellow-500 to-rose-500 shadow-inner shadow-yellow-500 border-0 xl:text-xl lg:text-lg">Explore More
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                    <button className="gradient-btn xl:text-xl lg:text-lg">Explore More
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                         </svg>
                                     </button>
                                 </div>
@@ -95,10 +97,10 @@ const Banner = () => {
                              Good thoughts bear good fruit, bad thoughts bear bad fruit. 
                              </h2>
                              {/* ------------- explore button ---------*/}
-                             <button className="btn bg-gradient-to-r from-rose-500 to-yellow-500 shadow-inner shadow-rose-500 border-0 sm:text-base justify-self-center">
+                             <button className="gradient-btn sm:text-base justify-self-center">
                                 Explore More
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                </svg>
+                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                  </svg>
                               </button>
                          </div>
                    </div> 
@@ -125,8 +127,9 @@ const Banner = () => {
                                         The fruit derived from labor is theLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sunt porro vero similique iusto explicabo!
                                     </p>
                                     {/* ------------ explore button --------------------*/}
-                                    <button className="btn bg-gradient-to-r from-rose-500 to-yellow-500 shadow-inner shadow-rose-500 border-0 xl:text-xl lg:text-lg">Explore More
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                    <button className="gradient-btn">Explore More
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> 
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                         </svg>
                                     </button>
                                 </div>
@@ -145,9 +148,10 @@ const Banner = () => {
                              Life isn't about finding yourself. Life is about creating yourself.
                              </h2>
                              {/* ------------- button --------- */}
-                             <button className="btn bg-gradient-to-r from-rose-500 to-yellow-500 shadow-inner shadow-rose-500 border-0 sm:text-base justify-self-center">
+                             <button className="gradient-btn sm:text-base justify-self-center">
                                 Explore More
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> 
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                 </svg>
                               </button>
                          </div>
@@ -179,8 +183,9 @@ const Banner = () => {
                                         The fruit derived from labor is theLorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sunt porro vero similique iusto explicabo!
                                     </p>
                                     {/* ------------- explore button --------------------*/}
-                                    <button className="btn bg-gradient-to-r from-yellow-500 to-rose-500 shadow-inner shadow-yellow-500 border-0 xl:text-xl lg:text-lg">Explore More
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                    <button className="gradient-btn xl:text-xl lg:text-lg">Explore More
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> 
+                                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                                         </svg>
                                     </button>
                                 </div>
@@ -194,10 +199,11 @@ const Banner = () => {
                              <h2 className='text-[30px] leading-10 text-white font-semibold font-serif my-5 text-center '>
                              Life is really simple, but we insist on making it complicated. 
                              </h2>
-                             <button className="btn bg-gradient-to-r from-rose-500 to-yellow-500 shadow-inner shadow-rose-500 border-0 sm:text-base justify-self-center">
+                             <button className="gradient-btn sm:text-base justify-self-center">
                                 Explore More
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6"> <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                </svg>
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-6 right-arrow"> 
+                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                 </svg>
                               </button>
                          </div>
                    </div> 

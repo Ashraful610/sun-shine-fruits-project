@@ -12,7 +12,7 @@ const ExtraSectionTwo = () => {
        </div>
     </>
     return (
-        <main className="w-full lg:h-screen md:h-[600px]  h-fit sm:px-10 sm:pb-10 md:px-8 p-5 bg-gradient-to-r from-yellow-400 to-rose-600">
+        <main className="w-full lg:h-screen md:h-[600px] h-fit sm:px-10 sm:pb-10 md:px-8 p-5 ">
             <div className="sm:p-5 p-0">
                 <h1 className="sm:text-5xl text-4xl text-white text-center font-semibold"> 
                 Our<span className='text-yellow-300'> Customers Review </span>

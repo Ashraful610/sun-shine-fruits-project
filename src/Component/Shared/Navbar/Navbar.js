@@ -5,17 +5,16 @@ import auth from '../../../Firebase/Firebase.init';
 import toast from 'react-hot-toast';
 
 const Navbar = () => {
-    const [user , setUser] = useState({})
+    const [user , setUser] = useState('')
 
     // --------------- toast style --------------------
     const toastStyle = { 
-        duration: 4000,position: 'top-right',
+        duration: 2000,position: 'top-right',
         style: {
-        backgroundImage:'linear-gradient(-45deg ,rgb(197, 197, 8) , rgb(220, 17, 17))',
-        color:'white'
+          backgroundImage:'linear-gradient(-45deg ,rgb(197, 197, 8) , rgb(220, 17, 17))',
+          color:'white'
          }
        }
-
     //    ------------- user  selection --------------------------------
       useEffect(() =>{
         onAuthStateChanged(auth, (user) => {
@@ -30,7 +29,7 @@ const Navbar = () => {
         signOut(auth)
         .then(() => {
             toast.success(`${user.email} successfully signed out`,toastStyle);
-            setUser({})
+            setUser('')
           })
         .catch((error) => {
             toast.error(error.message, toastStyle);
@@ -38,8 +37,8 @@ const Navbar = () => {
         }        
 
     return (
-    <div className="navbar sm:px-5 px-2 sm:py-3 py-1 w-full  shadow bg-gradient-to-r from-yellow-400 to-rose-700">
-        <div className="navbar-start w-4/6 ">
+    <div className="navbar sm:px-5 px-2 sm:py-3 py-1 w-full shadow-xl ">
+        <div className="navbar-start lg:w-5/6 w-4/6 ">
              {/* -------------- small navigation -------------------- */}
             <div className="dropdown">
                 <label tabIndex="0" className="btn btn-ghost lg:hidden p-0 pr-2 text-white">
@@ -49,29 +48,48 @@ const Navbar = () => {
                 </label>
                 <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <Link to='/home' className='text-xl px-2'>Home</Link>
-                    <Link to='/addItem' className='text-xl px-2' px-2>Add Item</Link>
-                    <Link to='/myItem' className='text-xl px-2'>My Item</Link>
-                    <Link to='/manageItem' className='text-xl px-2'>Manage Item</Link> 
+                    <Link to='/blog' className='text-xl px-2'>Blog</Link>
+                    {
+                        user && <>
+                            <Link to='/addItem' className='text-xl px-2' px-2>Add Item</Link>
+                            <Link to='/myItem' className='text-xl px-2'>My Item</Link>
+                            <Link to='/manageItem' className='text-xl px-2'>Manage Item</Link>
+                        </>
+                    } 
                 </ul>
             </div>
             <h2 className='text-3xl text-white sm:text-4xl xl:text-4xl lg:text-3xl font-medium font-serif xl:mx-7 lg:mx-2'>
-                Fruits Graden
+                Fruits Garden
             </h2>
              {/*  ------------ large device block -------- */}
             <div className=" hidden lg:flex mx-4">
                 <ul className="menu menu-horizontal p-0">
-                    <Link to='/home' className='text-xl text-white xl:mx-4 lg:mx-2'>Home</Link>
-                    <Link to='/addItem' className='text-xl text-white xl:mx-4 lg:mx-2'>Add Item</Link>
-                    <Link to='/myItem' className='text-xl text-white xl:mx-4 lg:mx-2'>My Item</Link>
-                    <Link to='/manageItem' className='text-xl text-white xl:mx-4 lg:mx-2'>Manage Item</Link> 
+                    <Link to='/home' className='text-xl text-white xl:mx-4 lg:mx-2'>
+                        Home
+                    </Link>
+                    <Link to='/blog' className='text-xl text-white xl:mx-4 lg:mx-2'>
+                        Blog
+                    </Link>
+                    {
+                        user && <>
+                         <Link to='/addItem' className='text-xl text-white xl:mx-4 lg:mx-2'>
+                            Add Item
+                        </Link>
+                        <Link to='/myItem' className='text-xl text-white xl:mx-4 lg:mx-2'>
+                            My Item
+                        </Link>
+                        <Link to='/manageItem' className='text-xl text-white xl:mx-4 lg:mx-2'>
+                            Manage Item
+                        </Link> 
+                        </>
+                    }
                 </ul>
            </div>
         </div>
-        <div className="navbar-end w-2/6">
+        <div className="navbar-end lg:w-1/6 w-2/6">
                {
                 user ? 
                  <>
-                   
                     <button className='text-xl text-white px-2 font-semibold sm:mx-10'
                      onClick={handleSignOut}>
                     Sign Out
