@@ -21,7 +21,6 @@ const SignIn = () => {
     //  ----------- user
     const [user, userLoading, error] = useAuthState(auth);
    
- 
     let navigate = useNavigate();
     let location = useLocation();
   
@@ -30,9 +29,9 @@ const SignIn = () => {
     if(userLoading){
         return <Loading></Loading>
     }
-        if(user){
-            return  navigate(from, { replace: true });
-        }
+    if(user){
+         return  navigate(from, { replace: true });
+    }
     
     //  -------------- toast style
     const toastStyle = { 

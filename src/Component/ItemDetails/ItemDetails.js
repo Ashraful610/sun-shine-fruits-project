@@ -9,7 +9,7 @@ const ItemDetails = () => {
     let {name , price , img , description, suplier , quantity}= fruit
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/fruit/${fruitId}`)
+        fetch(`https://sleepy-crag-27771.herokuapp.com/fruit/${fruitId}`)
         .then(res => res.json())
         .then(data => setFruit(data))
     },[quantity])
@@ -27,7 +27,7 @@ const ItemDetails = () => {
                 "img": img,
                 "suplier": suplier
                 }         
-                fetch(`http://localhost:4000/fruit/${fruitId}`, {
+                fetch(`https://sleepy-crag-27771.herokuapp.com/fruit/${fruitId}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateFruit),
                     headers: {
@@ -37,7 +37,7 @@ const ItemDetails = () => {
                 .then((response) => response.json())
                 .then(data => {
                     if(data.modifiedCount == !0)
-                    toast.success('Successfully updated')
+                    toast.success('Successfully decrease')
                 });
                 
         }
@@ -55,7 +55,7 @@ const ItemDetails = () => {
                 "img": img,
                 "suplier": suplier
                 }         
-                fetch(`http://localhost:4000/fruit/${fruitId}`, {
+                fetch(`https://sleepy-crag-27771.herokuapp.com/fruit/${fruitId}`, {
                     method: 'PUT',
                     body: JSON.stringify(updateFruit),
                     headers: {

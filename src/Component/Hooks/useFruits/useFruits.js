@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Loading from "../../Shared/Loading/Loading";
 
 const useFruits = () => {
      const [fruits, setFruits] = useState([])
      useEffect(()=>{
-        fetch('http://localhost:4000/fruits')
+        fetch('https://sleepy-crag-27771.herokuapp.com/fruits')
         .then(res => res.json())
         .then( data => setFruits(data))
      },[])

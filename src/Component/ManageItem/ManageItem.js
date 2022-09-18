@@ -15,9 +15,9 @@ const ManageItem = () => {
             <Link to='/addItem' className='gradient-btn sm:w-[200px] w-[150px]'>Add New Item</Link>
         </div>
        <div className='w-full h-full py-5'>  
-            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-                <table class="w-full text-left  dark:text-gray-400">
-                    <thead class=" text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+            <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+                <table className="w-full text-left  dark:text-gray-400">
+                    <thead className=" text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="lg:text-lg sm:text-base py-3 lg:px-6 px-3">
                             Photo

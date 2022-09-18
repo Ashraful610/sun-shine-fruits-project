@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import './AddItem.css'
 
@@ -60,7 +61,7 @@ const AddItem = () => {
             "img": fruitPhoto,
             "suplier": supplier
             }
-            fetch('http://localhost:4000/fruit', {
+            fetch('https://sleepy-crag-27771.herokuapp.com/fruit', {
             method: 'POST',
             body: JSON.stringify(fruit),
             headers: {
@@ -68,7 +69,9 @@ const AddItem = () => {
             },
             })
             .then((response) => response.json())
-            .then((json) => console.log(json));
+            .then((json) => {
+                toast.success('Successfully  add fruit')
+            });
 
            navigate('/manageItem')
 

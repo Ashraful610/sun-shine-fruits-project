@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useFruits from '../Hooks/useFruits/useFruits';
 import Item from '../Item/Item';
 import './Items.css'
+import Loading from '.././Shared/Loading/Loading'
 
 const Items = () => {
    // -------------- get all fruits data from useFruits custom hooks
