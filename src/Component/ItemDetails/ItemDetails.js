@@ -1,47 +1,97 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
 
 const ItemDetails = () => {
-    let [number , setNumber] = useState(0)
-    const [increaseNum , setIncreaseNum] = useState(0)
+    const {fruitId} = useParams()
+    const [fruit , setFruit] = useState({})
+    let {name , price , img , description, suplier , quantity}= fruit
+
+    useEffect(()=>{
+        fetch(`http://localhost:4000/fruit/${fruitId}`)
+        .then(res => res.json())
+        .then(data => setFruit(data))
+    },[quantity])
+
+
     const handleDecrease = event => {
         event.preventDefault();
-        if(number > 0) {
-        number--;
+        if(quantity > 0) {
+            let newQuantity = quantity--
+            const updateFruit = {
+                "name": name,
+                "price": price,
+                "description":description,
+                "quantity": newQuantity,
+                "img": img,
+                "suplier": suplier
+                }         
+                fetch(`http://localhost:4000/fruit/${fruitId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(updateFruit),
+                    headers: {
+                    'Content-type': 'application/json',
+                    }
+                })
+                .then((response) => response.json())
+                .then(data => {
+                    if(data.modifiedCount == !0)
+                    toast.success('Successfully updated')
+                });
+                
         }
     }
 
     const handleIncrease = event => {
-        const number = event.target.value
+        const number = parseInt(event.target.value)
         if(number > 0) {
-            console.log(number)
+            const newQuantity = number + quantity
+            const updateFruit = {
+                "name": name,
+                "price": price,
+                "description":description,
+                "quantity": newQuantity,
+                "img": img,
+                "suplier": suplier
+                }         
+                fetch(`http://localhost:4000/fruit/${fruitId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(updateFruit),
+                    headers: {
+                    'Content-type': 'application/json',
+                    }
+                })
+                .then((response) => response.json())
+                .then(data => {
+                    if(data.modifiedCount == !0)
+                    toast.success('Successfully updated')
+                });
         }
+        event.target.value = ''
     }
 
-    const handleQuantity = event => {
-        event.preventDefault();
-        console.log(increaseNum);
-    }
     return (
         <div className='min-h-[500px] sm:h-[550px] h-fit md:p-5 p-2'>
             <div className='backdrop-blur-sm bg-white/30 w-full h-full sm:flex'>
                 <div className="sm:w-2/4 h-full">
-                   <img src="https://placeimg.com/192/192/people" alt='' className='w-full h-full'/>
+                   <img src={img} alt='' className='w-full h-full'/>
                 </div>
                <div className='sm:w-2/4 sm:p-5 p-2 space-y-4'>
                    <h2 className='items-details-text'>
-                     Fruits Name : Mango 
+                     Fruits Name : {name}
                     </h2>
                     <h2 className='items-details-text'>
-                        Price : $120 
+                        Price : ${price} 
                     </h2>
                     <h2 className='items-details-text'>
-                        Supplier Name : Shakib 
+                        Supplier Name : {suplier} 
                     </h2>
                     <h2 className='items-details-text'>
-                        Quantity : 20 
+                        Quantity : {quantity}
                     </h2>
                     <p className='sm:text-xl font-semibold text-white'>
-                        Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum necessitatibus doloremque temporibus dolores mollitia dolor voluptatem blanditiis error aspernatur molestiae. 
+                        Description: {description} 
                     </p>
                     <button className="gradient-btn w-1/4" onClick={handleDecrease}>
                       decrease
