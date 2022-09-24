@@ -84,7 +84,7 @@ const ItemDetails = () => {
                 .then((response) => response.json())
                 .then(data => {
                     if(data.modifiedCount == !0)
-                    toast.success('Successfully updated')
+                    toast.success('Successfully BuyFruits')
                 });
 
            const newPrice = number * parseInt(price)
