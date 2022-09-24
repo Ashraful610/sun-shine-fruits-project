@@ -1,43 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/Firebase.init';
+import BuyFruits from './BuyFruits/BuyFruits';
 import './MyItem.css'
 
 const MyItem = () => {
+   const [user, userLoading, error] = useAuthState(auth);
    const [myFruits , setMyFruits] = useState()
+
+         useEffect(() =>{
+            fetch(`http://localhost:4000/soldFruits/${user?.email}`)
+            .then(res => res.json())
+            .then( data => setMyFruits(data))
+         },[user?.email])
+       
+   
     return (
-   <div className='w-full min-h-screen sm:p-5 p-2 '>
-      <div className='myItem'>
-         <div className='backdrop-blur-xl bg-white/20 p-3 w-[608px] flex justify-between rounded hover:shadow-xl'>
-             <div className="avatar">
-                        <div className="sm:w-24 w-16 rounded-full ring ring-orange-500  ring-offset-2">
-                            <img src="https://placeimg.com/192/192/people" />
-                        </div>
-             </div>
-             <div className="h-full justify-center flex flex-col ">
-                <h2 className='text-white sm:text-lg '>Fruits : Apple</h2>
-                <h2 className='text-white sm:text-lg '>Price : $120</h2>
-                <h2 className='text-white sm:text-lg '>Supplier : Shakib</h2>
-             </div>
-             <div className="h-full items-center flex">
-                <button className='gradient-btn'>Cancel</button>
-             </div>
-          </div>
-         <div className='backdrop-blur-xl bg-white/20 p-3 w-[608px] flex justify-between rounded hover:shadow-xl'>
-             <div className="avatar">
-                        <div className="sm:w-24 w-16 rounded-full ring ring-orange-500  ring-offset-2">
-                            <img src="https://placeimg.com/192/192/people" />
-                        </div>
-             </div>
-             <div className="h-full justify-center flex flex-col ">
-                <h2 className='text-white sm:text-lg '>Fruits : Apple</h2>
-                <h2 className='text-white sm:text-lg '>Price : $120</h2>
-                <h2 className='text-white sm:text-lg '>Supplier : Shakib</h2>
-             </div>
-             <div className="h-full items-center flex">
-                <button className='gradient-btn'>Cancel</button>
-             </div>
-          </div>
-      </div>
-      
+      <div className='w-full h-full p-5'>  
+        <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+          <table className="w-full text-left  dark:text-gray-400">
+              <thead className=" text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                      <th scope="col" className="lg:text-lg sm:text-base py-3 lg:px-6 px-3">
+                      Photo
+                      </th>
+                      <th scope="col" className="lg:text-lg sm:text-base py-3 lg:px-6 px-3">
+                          Fruits Details
+                      </th>
+                      <th scope="col" className="lg:text-lg sm:text-base py-3 lg:px-6 px-3">
+                          Description
+                      </th>
+                      <th scope="col" className="lg:text-lg sm:text-base py-3 lg:px-6 px-3">
+                          Price
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {
+                   myFruits?.map(fruit => <BuyFruits  key={fruit._id} myfruit={fruit}/>)
+                  }
+              </tbody>
+          </table>
+       </div>  
   </div>
     );
 };

@@ -15,7 +15,7 @@ const AddItem = () => {
         }
         )
 
-    const handleFruitsAdd = event =>{
+    const handleFruitsAdd = event =>{ 
         event.preventDefault();
         const fruitsName = event.target.fruitsName?.value
         const price = event.target.price?.value
@@ -79,7 +79,6 @@ const AddItem = () => {
     }
     return (
  <div className="w-full h-fit sm:p-5 bg-gradient-to-r from-yellow-400 to-rose-600">
-    
    <div className=" w-full h-full sm:flex  ">
     {/* ------------------- form   */}
        <form onSubmit={handleFruitsAdd} className='sm:w-2/4 w-full px-4 py-5 sm:p-6 backdrop-blur-sm bg-white/30'>
